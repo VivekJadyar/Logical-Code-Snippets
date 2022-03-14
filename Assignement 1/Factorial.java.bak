@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+class Factorial {
+
+	public static void main(String [] args) {
+		
+		Scanner input = new Scanner(System.in);
+		int number;
+		int fact;
+		
+		System.out.print("Enter number: ");
+		number = input.nextInt();
+		
+		Recursion rec = new Recursion();
+		fact = rec.recur();
+		
+		System.out.println("Factorial of " + number + "! is " + fact);
+		
+	}
+
+}
+
+class Recursion {
+	
+	int recur (int num) {
+		if (num == 0)
+			return 1;
+		else if (num == 1)
+			return 1;
+		
+		int ans;
+		
+		ans = num * recur(num - 1);
+		
+		return ans;
+		
+	}
+	
+}

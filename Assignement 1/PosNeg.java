@@ -1,0 +1,21 @@
+
+import java.util.Scanner;
+
+class PosNeg {
+
+	public static void main(String [] args) {
+	
+		int num;
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter number:");
+		num = input.nextInt(); 
+		
+		if (num < 0)
+			System.out.println("Number " + num + " is Negative number.");
+		else
+			System.out.println("Number " + num + " is Positive number.");
+	
+	}
+
+}
