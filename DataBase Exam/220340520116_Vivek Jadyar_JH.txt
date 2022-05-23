@@ -1,0 +1,184 @@
+Student Name :		Vivek Jadyar	
+Roll no. : 		220340520116
+Centre Name :		Juhu
+
+ 
+
+---------------------------------------------CODE---------------------------------------------------
+
+
+CREATE TABLE DEPT( -- 									CREATING DEPT TABLE
+deptno INT,
+dname VARCHAR(15),
+loc VARCHAR(10)
+);
+
+CREATE TABLE EMP( -- 									CREATING EMP TABLE
+empno INT,
+ename VARCHAR(10),
+job VARCHAR(9),
+hiredate DATE,
+sal FLOAT(7,2),
+comm FLOAT(7,2),
+deptno INT
+);
+
+INSERT INTO DEPT VALUES -- 								INSERTION IN DEPT
+(10, 'ACCOUNTING', 'NEW YORK'),
+(20, 'RESEARCH', 'DALLAS'),
+(30, 'SALES', 'CHICAGO'),
+(40, 'OPERATIONS', 'BOSTON');
+
+SELECT * FROM DEPT; -- 									Q.1.1
+
+
+INSERT INTO EMP VALUES -- 								INSERTION IN EMP
+(7839, 'KING', 'MANAGER', '1991-11-17', 5000, NULL, 10),
+(7698, 'BLAKE', 'CLERK', '1981-05-01', 2850, NULL, 30),
+(7782, 'CLARK', 'MANAGER', '1981-06-09', 2450, NULL, 10),
+(7566, 'JONES', 'CLERK', '1981-04-02', 2975, NULL, 20),
+(7654, 'MARTIN', 'SALESMAN', '1981-09-28', 1250, 1400, 30),
+(7499, 'ALLEN', 'SALESMAN', '1981-02-20', 1600, 300, 30);
+
+SELECT * FROM EMP; -- 									Q.1.2
+
+-- ---------------------------------------------------------
+
+SELECT ename FROM emp -- 						Q1.3
+WHERE sal BETWEEN 2500 AND 5000;
+
+SELECT ename from emp -- 						Q.1.4
+ORDER BY ename DESC;
+
+SELECT lower(job) FROM emp; -- 					Q1.5
+
+SELECT ename, length(ename) FROM emp; -- 		Q1.6
+
+SELECT deptno, count(empno) FROM emp -- 		Q1.7
+GROUP BY deptno;
+
+SELECT dname, ename FROM emp, dept -- 			Q1.8
+WHERE emp.deptno = dept.deptno;
+
+SELECT ename, sal * 0.2 'HRA' FROM emp; -- 		Q1.10
+
+-- ---------------------------------------------------------
+
+CREATE TABLE TEMPP( -- 						
+fun11 varchar(15),
+stat varchar(10),
+fun22 varchar(15)
+);
+
+
+DELIMITER // --										Q.2.1
+CREATE PROCEDURE PROC1()
+BEGIN
+	DECLARE x VARCHAR(15) DEFAULT 'CDAC';
+    	DECLARE y VARCHAR(15) DEFAULT 'DAC';
+	IF 'CDAC' LIKE '%DAC%' THEN
+		INSERT INTO tempp VALUES (x, 'present', y);
+	END IF;
+END; //
+DELIMITER ;
+
+CALL PROC1();
+
+SELECT * FROM TEMPP;
+
+-- ---------------------------------------------------------
+
+DELIMITER // -- 						Q2.2
+CREATE FUNCTION FUNC1(x INT, y INT, z INT)
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+	-- DECLARE max INT;
+    -- DECLARE sum INT;
+
+        IF (y + z) > x THEN
+			IF (z + x) > y THEN
+				IF (x + y) > z THEN
+					RETURN TRUE;
+				ELSE
+					RETURN FALSE;
+				END IF;
+			ELSE
+				RETURN FALSE;
+			END IF;
+		ELSE
+			RETURN FALSE;
+		END IF;
+			
+END; //
+DELIMITER ;
+
+SELECT FUNC1(17, 21, 10) FROM DUAL; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
