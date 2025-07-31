@@ -1,2 +1,2 @@
-# Vivek_Jadyar_march2022
+# Logical Codes
 Vivek Jadyar - CDAC Juhu__march 2022 Batch
